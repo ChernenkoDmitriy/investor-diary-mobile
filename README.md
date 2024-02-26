@@ -1,4 +1,4 @@
-# pod install fails due to glog #
+# investor-diary-mobile
 
-sudo xcode-select --switch /Applications/Xcode.app
-cd ios && pod install
+run cmd -- sudo xcode-select --switch /Applications/Xcode.app
+then try -- pod install
