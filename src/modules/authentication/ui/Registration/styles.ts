@@ -14,14 +14,14 @@ export const getStyle = (colors: IColors) => {
         },
         appNameText: {
             fontSize: 28,
-            color: colors.title,
+            color: colors.text_strong,
             alignSelf: 'center',
             marginBottom: 18,
         },
         instructionText: {
             lineHeight: 26,
             fontSize: 18,
-            color: colors.title,
+            color: colors.text_strong,
             alignSelf: 'center',
             marginBottom: 32,
         },

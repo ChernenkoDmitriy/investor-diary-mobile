@@ -4,11 +4,12 @@ import { Keyboard } from "react-native";
 import { appStateModel } from "../../../entities/appState/AppStateModel";
 import { signInUseCase } from "../useCases/signInUseCase";
 import { userModel } from "../../../entities/user/UserModel";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 export const useAuthorization = () => {
     const user = userModel.user;
     const token = userModel.token;
-    const navigation = useNavigation<any>();
+    const navigation = useNavigation<StackNavigationProp<any>>();
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     const [securePasswordEntry, setSecurePasswordEntry] = useState(true);

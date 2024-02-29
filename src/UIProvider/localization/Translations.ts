@@ -11,21 +11,19 @@ export const translations = {
         alreadySignUp: 'Already have an account? Sign in!',
         signUpButton: 'Sign up',
         // registration screen end
-        // training list screen start
-        createTraining: 'Create training',
-        createTrainingPlaceholder: 'Enter training name',
-        addPhoto: 'Add photo',
-        creationScreenTitle: 'Design Your Workout',
-        creationScreenDescription: 'Create a tailored training plan with ease. Select exercises, set reps, and customize rest intervals to reach your fitness goals',
-        // training list screen end
+        // investments create  screen end
+        createInvestments: 'Create investments',
+        // header start
 
-
+        for: 'for',
+        home: 'Home',
+        profile: 'Profile',
         trainings: 'Trainings',
         signIn: 'Sign in',
         signUp: 'Sign up',
         exit: 'Exit',
         settings: 'Settings',
-        appName: 'Health habits',
+        appName: 'Investor diary',
         ok: 'Ok',
         cancel: 'Cancel',
         yes: 'Yes',
@@ -48,5 +46,17 @@ export const translations = {
         password: 'Password',
         repeatPassword: 'Repeat password',
         email: 'Email',
+        name: 'Name',
+        currency: 'Currency',
+        icon: 'Icon',
+        ticker: 'Ticker',
+        comment: 'Comment',
+        broker: 'Broker',
+        enteringPrice: 'Entering price',
+        enteringDate: 'Entering date',
+        amount: 'Amount',
+        type: 'Type',
+        sector: 'Sector',
+        create: 'Create'
     }
 }

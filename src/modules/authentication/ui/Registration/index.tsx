@@ -5,9 +5,9 @@ import { useUiContext } from '../../../../UIProvider';
 import { useRegistration } from '../../presenters/useRegistration';
 import { observer } from 'mobx-react';
 import { ScreenContainer } from '../../../../UIKit/screenContainer';
-import { MainButton } from '../../../../UIKit/mainButton';
+import { Button } from '../../../../UIKit/Button';
 import { TextButton } from '../../../../UIKit/textButton';
-import { AuthInput } from '../components/authInput';
+import { AuthorizationInput } from '../components/authorizationInput';
 
 export const RegistrationView: FC = observer(() => {
     const {
@@ -38,31 +38,32 @@ export const RegistrationView: FC = observer(() => {
                 <View>
                     <Text style={styles.appNameText}>{t('appName').toUpperCase()}</Text>
                     <Text style={styles.instructionText}>{t('createNewAccount')}</Text>
-                    <AuthInput
+                    <AuthorizationInput
                         value={firstName}
                         onChangeText={onChangeFirstName}
                         placeholder={t('firstName')}
                     />
-                    <AuthInput
+                    <AuthorizationInput
                         value={lastName}
                         onChangeText={onChangeLastName}
                         placeholder={t('lastName')}
                     />
-                    <AuthInput
+                    <AuthorizationInput
                         keyboardType='number-pad'
                         value={phone}
                         onChangeText={onChangePhone}
                         placeholder={t('phone')}
                     />
-                    <AuthInput
+                    <AuthorizationInput
                         secureTextEntry={securePasswordEntry}
                         value={password}
                         onChangeText={onChangePassword}
                         placeholder={t('password')}
+                        onSetSecureTextEntry={onSecurePasswordEntry}
                     />
                 </View>
                 <View style={styles.footer}>
-                    <MainButton onPress={onSignUp} title={t('signUpButton')} disabled={disabledButton} inProgress={false} />
+                    <Button onPress={onSignUp} text={t('signUpButton')} disabled={disabledButton} inProgress={false} />
                     <TextButton text={t('alreadySignUp')} onPress={onGoToAuthorization} />
                 </View>
             </View>

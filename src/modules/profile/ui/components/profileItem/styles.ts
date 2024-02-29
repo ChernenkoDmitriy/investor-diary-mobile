@@ -4,7 +4,8 @@ import { IColors } from '../../../../../UIProvider/theme/IColors';
 export const getStyles = (colors: IColors) => {
     const styles = StyleSheet.create({
         container: {
-            height: 36,
+            paddingLeft: 16,
+            height: 42,
             width: '100%',
             flexDirection: 'row',
             alignItems: 'center',
@@ -18,6 +19,7 @@ export const getStyles = (colors: IColors) => {
         },
         textContainer: {
             flex: 1,
+            
             height: 36,
             borderBottomWidth: 1,
             borderBottomColor: colors.border,

@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
 import { observer } from 'mobx-react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ProfileStackNavigator, TrainingStackNavigator } from '../stackNavigator';
 import { useUiContext } from '../../UIProvider';
-import { SettingsIcon } from '../../assets/icons/SettingsIcon';
-import { GymIcon } from '../../assets/icons/GymIcon';
+import { ProfileView } from '../../modules/profile/ui/Profile';
+import { ProfileIcon } from '../../assets/icons/ProfileIcon';
+import { HomeIcon } from '../../assets/icons/HomeIcon';
+import { HomeView } from '../../modules/home/ui';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,23 +15,23 @@ export const TabNavigator: FC = observer(() => {
     return (
         <Tab.Navigator initialRouteName='TrainingStackNavigator' screenOptions={{ headerShown: false }} detachInactiveScreens={false} >
             <Tab.Screen
-                name='TrainingStackNavigator'
-                component={TrainingStackNavigator}
+                name='HomeView'
+                component={HomeView}
                 options={{
-                    tabBarIcon: ({ focused }) => <GymIcon color={focused ? colors.primary : colors.icon} />,
-                    tabBarLabel: t('trainings'),
+                    tabBarIcon: ({ focused }) => <HomeIcon color={focused ? colors.primary : colors.icon_strong} />,
+                    tabBarLabel: t('home'),
                     tabBarActiveTintColor: colors.primary,
-                    tabBarInactiveTintColor: colors.icon,
+                    tabBarInactiveTintColor: colors.icon_strong,
                 }}
             />
             <Tab.Screen
-                name='ProfileStackNavigator'
-                component={ProfileStackNavigator}
+                name='ProfileView'
+                component={ProfileView}
                 options={{
-                    tabBarIcon: ({ focused }) => <SettingsIcon color={focused ? colors.primary : colors.icon} />,
-                    tabBarLabel: t('settings'),
+                    tabBarIcon: ({ focused }) => <ProfileIcon color={focused ? colors.primary : colors.icon_strong} />,
+                    tabBarLabel: t('profile'),
                     tabBarActiveTintColor: colors.primary,
-                    tabBarInactiveTintColor: colors.icon,
+                    tabBarInactiveTintColor: colors.icon_strong,
                 }}
             />
         </Tab.Navigator >

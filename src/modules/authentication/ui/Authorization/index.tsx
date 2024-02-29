@@ -6,9 +6,9 @@ import { useAuthorization } from '../../presenters/useAuthorization';
 import { observer } from 'mobx-react';
 import { AuthorizationErrorText } from '../components/authorizationErrorText';
 import { ScreenContainer } from '../../../../UIKit/screenContainer';
-import { MainButton } from '../../../../UIKit/mainButton';
+import { Button } from '../../../../UIKit/Button';
 import { TextButton } from '../../../../UIKit/textButton';
-import { AuthInput } from '../components/authInput';
+import { AuthorizationInput } from '../components/authorizationInput';
 
 export const AuthorizationView: FC = observer(() => {
     const {
@@ -24,14 +24,15 @@ export const AuthorizationView: FC = observer(() => {
                 <View>
                     <Text style={styles.appNameText}>{t('appName').toUpperCase()}</Text>
                     <Text style={styles.instructionText}>{t('authorizeToContinue')}</Text>
-                    <AuthInput
+                    <AuthorizationInput
                         keyboardType='number-pad'
                         value={phone}
                         onChangeText={setPhone}
                         placeholder={t('phone')}
                     />
-                    <AuthInput
+                    <AuthorizationInput
                         secureTextEntry={securePasswordEntry}
+                        onSetSecureTextEntry={onSecurePasswordEntry}
                         value={password}
                         onChangeText={setPassword}
                         placeholder={t('password')}
@@ -40,10 +41,10 @@ export const AuthorizationView: FC = observer(() => {
                 </View>
                 <View style={styles.footer}>
                     <AuthorizationErrorText isVisible={authorizationError} />
-                    <MainButton
+                    <Button
                         onPress={onSignIn}
-                        title={t('signInButton')}
-                        // disabled={disabledButton}
+                        text={t('signInButton')}
+                        disabled={disabledButton}
                         inProgress={false} />
                     <TextButton text={t('doNotHaveAccount')} onPress={onGoToRegistration} />
                 </View>

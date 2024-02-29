@@ -10,16 +10,16 @@ export const useProfile = () => {
 
     const exit = async () => {
         userModel.clear();
-        navigation.navigate('AuthorizationView');
+        navigation.reset({ index: 0, routes: [{ name: 'AuthorizationView' }], });
     }
 
     const onExit = () => {
         Alert.alert(
-            t('common.exit'),
+            t('exit'),
             t('profile.exitProfile'),
             [
-                { text: t('common.cancel'), style: 'cancel', },
-                { text: t('common.exit'), style: 'destructive', onPress: exit, },
+                { text: t('cancel'), style: 'cancel', },
+                { text: t('exit'), style: 'destructive', onPress: exit, },
             ],
             { cancelable: false },
         );

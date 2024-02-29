@@ -2,7 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useCallback, useEffect, useState } from "react";
 import { Keyboard } from "react-native";
-import Toast from "react-native-toast-message";
+// import Toast from "react-native-toast-message";
 import { appStateModel } from "../../../entities/appState/AppStateModel";
 import { useUiContext } from "../../../UIProvider";
 import { restorePasswordUseCase } from "../useCases/restorePasswordUseCase";
@@ -29,7 +29,7 @@ export const useRestorePassword = () => {
         if (response.isError) {
             setEmailError(t('notValidEmail'));
         } else {
-            Toast.show({ type: 'success', text1: t('successful'), text2: t('checkEmail'), visibilityTime: 2000, });
+            // Toast.show({ type: 'success', text1: t('successful'), text2: t('checkEmail'), visibilityTime: 2000, });
             navigation.goBack();
         }
         appStateModel.isLoading = false;

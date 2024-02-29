@@ -6,8 +6,10 @@ export const signUpUseCase = async (phone: string, first_name: string, last_name
     try {
         const { data, isError, message } = await userService.signUp({ phone, first_name, last_name, password });
         if (!isError) {
-            userModel.token = data.token;
-            userModel.user = data.user;
+            // userModel.token = data.token;
+            // userModel.user = data.user;
+            userModel.token = '1';
+            userModel.user = { id: 1, first_name, last_name, phone, email: null, avatar: null };
         }
         return { isError, message, data };
     } catch (error) {
