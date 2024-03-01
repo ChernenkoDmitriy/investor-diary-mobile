@@ -25,8 +25,8 @@ export const InvestmentListItem: FC<IProps> = memo(({ item, onPress }) => {
         <TouchableOpacity style={styles.container} onPress={onHandlePress}>
             <View style={styles.block}>
                 <View style={styles.flexRow}>
-                    <FastImage source={{ uri: item.icon }} style={styles.image} />
-                    <Typography type='h5' text={item.ticker} />
+                    {/* <FastImage source={{ uri: item.icon }} style={styles.image} /> */}
+                    <Typography numberOfLines={1} type='h5' text={item.ticker || item.name} />
                 </View>
                 <View style={styles.flexRow}>
                     <View style={styles.iconWrapper}><StackIcon width={16} height={16} /></View>

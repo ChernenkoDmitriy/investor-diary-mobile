@@ -81,6 +81,22 @@ class FetchRequester implements IRequester {
         }
     }
 
+    patch = async (url: string, body?: object, headers?: object): Promise<any> => {
+        try {
+            const config: RequestInit = {
+                method: 'PATCH',
+                headers: this.getHeaders(headers),
+                body: body ? JSON.stringify(body) : undefined,
+            };
+            const response = await fetch(url, config);
+            const result = await response.json();
+            return this.processingResponse({ data: result, status: response.status });
+        } catch (error: any) {
+            console.warn('FetchRequester -> post: ', error);
+            return error?.response || {};
+        }
+    }
+
     get = async (url: string, headers?: object): Promise<any> => {
         try {
             const config: RequestInit = {

@@ -80,5 +80,10 @@ export const translations = {
         obligation: 'Obligation',
         deposit: 'Deposit',
         cash: 'Cash',
+        undefined: 'Undefined',
+        uah: 'UAH',
+        usd: 'USD',
+        eur: 'EUR',
+        gbp: 'GBP',
     }
 }

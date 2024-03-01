@@ -2,16 +2,19 @@ import { useState } from "react";
 import { DateData } from "react-native-calendars";
 import { createInvestmentUseCase } from "../useCases/createInvestmentUseCase";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { IInvestment } from "../entity/IInvestment";
+import { updateInvestmentUseCase } from "../useCases/updateInvestmentUseCase";
 
 type InvestmentValue = 'name' | 'currency' | 'icon' | 'ticker' | 'comment' | 'broker' | 'enteringPrice' | 'enteringDate' | 'amount' | 'type' | 'sector';
-const DEFAULT_INVESTMENT = {
+const DEFAULT_INVESTMENT: any = {
     id: 0, name: '', currency: '', icon: '', ticker: '', comment: '',
-    broker: '', enteringPrice: 0, enteringDate: '', amount: 1, type: '', sector: '',
+    broker: '', enteringPrice: 0, enteringDate: undefined, amount: 1, type: '', sector: '',
 };
 
 export const useCreateInvestment = () => {
-    const [investment, setInvestment] = useState(DEFAULT_INVESTMENT);
+    const item: IInvestment = useRoute<any>().params?.item;
+    const [investment, setInvestment] = useState(item || DEFAULT_INVESTMENT);
     const [calendarVisible, setCalendarVisible] = useState(false);
     const navigation = useNavigation<StackNavigationProp<any>>();
 
@@ -47,5 +50,14 @@ export const useCreateInvestment = () => {
         }
     }
 
-    return { investment, onChangeValue, calendarVisible, openCalendar, closeCalendar, onChoseDate, onCreate };
+    const onEdit = async () => {
+        const { isError } = await updateInvestmentUseCase(investment);
+        if (!isError) {
+            navigation.goBack();
+        }
+    }
+
+    const onSave = item ? onEdit : onCreate;
+
+    return { investment, onChangeValue, calendarVisible, openCalendar, closeCalendar, onChoseDate, onSave };
 }

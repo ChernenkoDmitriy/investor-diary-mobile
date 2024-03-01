@@ -10,6 +10,11 @@ export const getStyle = (_colors: IColors) => {
         doubleViewInputs: {
             flexDirection: 'row',
             width: '100%',
+            zIndex: 20,
+        },
+        tripleViewInputs: {
+            flexDirection: 'row',
+            width: '100%',
         },
         input: {
             flex: 1

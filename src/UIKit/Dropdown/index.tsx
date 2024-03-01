@@ -1,7 +1,7 @@
 import React, { FC, memo, useMemo, useState } from 'react';
 import { useUiContext } from '../../UIProvider';
 import { getStyle } from './styles';
-import DropDownPicker, { ValueType, } from 'react-native-dropdown-picker';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 interface IProps {
     value: string;
@@ -22,7 +22,7 @@ export const Dropdown: FC<IProps> = memo(({ value, items, placeholder, setValue 
             closeOnBackPressed={true}
             style={styles.dropdown}
             dropDownContainerStyle={styles.dropDownContainerStyle}
-            listItemContainerStyle={styles.listItemContainerStyle} 
+            listItemContainerStyle={styles.listItemContainerStyle}
             open={open}
             value={value}
             items={items}

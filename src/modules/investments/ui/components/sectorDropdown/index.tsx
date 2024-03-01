@@ -13,7 +13,7 @@ export const SectorDropdown: FC<IProps> = memo(({ value, onChange }) => {
     const { colors, t } = useUiContext();
     const styles = useMemo(() => getStyle(colors), [colors]);
 
-    const ITEMS = [
+    const ITEMS: any = [
         { label: t('technology'), value: 'Technology' },
         { label: t('finance'), value: 'Finance' },
         { label: t('healthcare'), value: 'Healthcare' },
@@ -24,7 +24,8 @@ export const SectorDropdown: FC<IProps> = memo(({ value, onChange }) => {
         { label: t('energy'), value: 'Energy' },
         { label: t('basicMaterials'), value: 'Basic Materials' },
         { label: t('realEstate'), value: 'Real Estate' },
-        { label: t('utilities'), value: 'Utilities' }
+        { label: t('utilities'), value: 'Utilities' },
+        { label: t('undefined'), value: null },
     ]
 
     const onChangeValue = (value: { label: string; value: string; }) => {

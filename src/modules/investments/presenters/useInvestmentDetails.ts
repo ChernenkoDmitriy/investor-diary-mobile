@@ -4,10 +4,12 @@ import { Alert } from "react-native";
 import { removeInvestmentUseCase } from "../useCases/removeInvestmentUseCase";
 import { useUiContext } from "../../../UIProvider";
 import { StackNavigationProp } from "@react-navigation/stack";
+import { investmentsModel } from "../entity/InvestmentsModel";
 
 export const useInvestmentDetails = () => {
     const { t } = useUiContext();
-    const item: IInvestment = useRoute<any>().params?.item;
+    const itemId = useRoute<any>().params?.item?.id;
+    const item: IInvestment = investmentsModel.investments?.find(item => item.id === Number(itemId)) || {} as IInvestment;
     const navigation = useNavigation<StackNavigationProp<any>>();
 
     const onDelete = () => {
@@ -24,6 +26,7 @@ export const useInvestmentDetails = () => {
     }
 
     const onEdit = () => {
+        navigation.navigate('InvestmentsCreateView', { item });
     }
 
     return { item, onDelete, onEdit };

@@ -8,6 +8,7 @@ export const getStyle = (colors: IColors) => {
             borderColor: colors.border,
             backgroundColor: colors.background,
             paddingHorizontal: 16,
+            height: 54,
         },
         dropDownContainerStyle: {
             borderColor: colors.border,
