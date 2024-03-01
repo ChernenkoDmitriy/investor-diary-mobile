@@ -9,8 +9,9 @@ export interface IInvestment {
     enteringPrice: number;
     enteringDate: string;
     amount: number;
-    type: '',
-    sector: '',
+    type: TInvestmentType,
+    sector: TSector,
 }
 
-export type StockSector = '';
+export type TSector = 'Technology' | 'Finance' | 'Healthcare' | 'Consumer Cyclical' | 'Industrial' | 'Communication Services' | 'Consumer Defensive' | 'Energy' | 'Basic Materials' | 'Real Estate' | 'Utilities';
+export type TInvestmentType = 'Index' | 'Stock' | 'ETF' | 'Bond' | 'Crypto' | 'Currency' | 'Commodity' | 'Obligation' | 'Deposit' | 'Cash';

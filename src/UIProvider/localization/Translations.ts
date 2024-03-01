@@ -13,6 +13,8 @@ export const translations = {
         // registration screen end
         // investments create  screen end
         createInvestments: 'Create investments',
+        // investments details  screen end
+        sureDeleteInvestment: 'Are you sure you want to delete this investment?',
         // header start
 
         for: 'for',
@@ -47,7 +49,6 @@ export const translations = {
         repeatPassword: 'Repeat password',
         email: 'Email',
         name: 'Name',
-        currency: 'Currency',
         icon: 'Icon',
         ticker: 'Ticker',
         comment: 'Comment',
@@ -57,6 +58,27 @@ export const translations = {
         amount: 'Amount',
         type: 'Type',
         sector: 'Sector',
-        create: 'Create'
+        create: 'Create',
+        technology: 'Technology',
+        finance: 'Finance',
+        healthcare: 'Healthcare',
+        consumerCyclical: 'Consumer Cyclical',
+        industrial: 'Industrial',
+        communicationServices: 'Communication Services',
+        consumerDefensive: 'Consumer Defensive',
+        energy: 'Energy',
+        basicMaterials: 'Basic Materials',
+        realEstate: 'Real Estate',
+        utilities: 'Utilities',
+        index: 'Index',
+        stock: 'Stock',
+        ETF: 'ETF',
+        bond: 'Bond',
+        crypto: 'Crypto',
+        currency: 'Currency',
+        commodity: 'Commodity',
+        obligation: 'Obligation',
+        deposit: 'Deposit',
+        cash: 'Cash',
     }
 }

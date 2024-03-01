@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { IColors } from '../../../../../../UIProvider/theme/IColors';
+import { IColors } from '../../../../../UIProvider/theme/IColors';
 
 export const getStyle = (colors: IColors) => {
     const styles = StyleSheet.create({
@@ -10,7 +10,7 @@ export const getStyle = (colors: IColors) => {
             marginTop: 24,
             height: 54,
             backgroundColor: colors.background,
-            borderColor: colors.icon_light,
+            borderColor: colors.border,
             borderWidth: 1,
             borderRadius: 6,
             flex: 0.8,

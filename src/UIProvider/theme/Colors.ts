@@ -5,7 +5,7 @@ export const COLORS: { light: IColors } = {
         background: '#FCFBFC',
         card: '#ECECEC',
         text: '#272A32',
-        border: '#DCDCDC',
+        border: '#00626C',
         notification: ' ',
 
         text_strong: '#0F1D37',

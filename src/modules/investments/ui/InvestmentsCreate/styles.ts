@@ -17,6 +17,9 @@ export const getStyle = (_colors: IColors) => {
         inputMarginRight: {
             marginRight: 12,
             flex: 1,
+        },
+        button: {
+            marginTop: 24,
         }
     });
     return styles;

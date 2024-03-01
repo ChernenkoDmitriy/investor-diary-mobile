@@ -1,8 +1,8 @@
 import React, { FC, memo, useMemo } from 'react';
 import { getStyle } from './styles';
 import { TouchableOpacity } from 'react-native';
-import { Typography } from '../../../../../../UIKit/Typography';
-import { useUiContext } from '../../../../../../UIProvider';
+import { Typography } from '../../../../../UIKit/Typography';
+import { useUiContext } from '../../../../../UIProvider';
 
 interface IProps {
     date: string;

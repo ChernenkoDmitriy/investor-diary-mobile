@@ -9,7 +9,7 @@ class InvestmentsService {
         private links: ILinks,
     ) { }
 
-    createInvestment = async (body: IInvestment): Promise<IResponse<IInvestment>> => {
+    create = async (body: IInvestment): Promise<IResponse<IInvestment>> => {
         try {
             const response = await this.requester.post(this.links.investments, body);
             return response;
@@ -17,7 +17,17 @@ class InvestmentsService {
             console.warn('InvestmentsService -> createInvestment: ', error);
             return { isError: true, data: null, message: '' } as any;
         }
-    } 
+    }
+
+    remove = async (id: number): Promise<IResponse<null>> => {
+        try {
+            const response = await this.requester.delete(this.links.investments + `/${id}`);
+            return response;
+        } catch (error) {
+            console.warn('InvestmentsService -> removeInvestment: ', error);
+            return { isError: true, data: null, message: '' } as any;
+        }
+    }
 
 }
 

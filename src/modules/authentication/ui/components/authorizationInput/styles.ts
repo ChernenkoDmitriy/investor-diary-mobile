@@ -11,8 +11,7 @@ export const getStyle = (colors: IColors) => {
             lineHeight: 24,
             height: 54,
             backgroundColor: colors.background,
-            borderColor: colors.icon_light,
-        },
+          },
         button: {
             height: 24,
             width: 24,

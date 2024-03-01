@@ -12,10 +12,8 @@ class UserService {
         private links: ILinks,
     ) { }
 
-    signIn = async (body: UserSignInDto): Promise<IResponse<{ user: IUser; token: string; }>> => {
-        try {
-            console.log('this.links.signIn: ', this.links.signIn);
-            console.log('body: ', body);
+    signIn = async (body: UserSignInDto): Promise<IResponse<{ user: IUser; accessToken: string; }>> => {
+        try { 
             const response = await this.requester.post(this.links.signIn, body);
             return response;
         } catch (error) {
@@ -24,7 +22,7 @@ class UserService {
         }
     }
 
-    signUp = async (body: UserSignUpDto): Promise<IResponse<{ user: IUser; token: string; }>> => {
+    signUp = async (body: UserSignUpDto): Promise<IResponse<{ user: IUser; accessToken: string; }>> => {
         try {
             const response = await this.requester.post(this.links.signUp, body);
             return response;

@@ -8,14 +8,13 @@ export interface ILinks {
 }
 
 class Links {
-    private local = 'http://localhost:4002/healthhabits';
-    private dev = 'https://nmau.pp.ua/healthhabits';
-    private _domain = this.local;
+    private dev = 'https://nmau.pp.ua/api';
+    private _domain = this.dev;
     private _links = {
         readFiles: `${this._domain}/read-files`,
 
-        signIn: `${this._domain}/authentication/sign-in`,
-        signUp: `${this._domain}/authentication/sign-up`,
+        signIn: `${this._domain}/auth-password/login`,
+        signUp: `${this._domain}/auth-password/registration`,
         profile: `${this._domain}/users/profile`,
         user: `${this._domain}/users`,
         userAvatar: `${this._domain}/users/set-avatar`,

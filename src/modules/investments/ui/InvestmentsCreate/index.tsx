@@ -8,8 +8,10 @@ import { getStyle } from './styles';
 import { useCreateInvestment } from '../../presenters/useCreateInvestment';
 import { View } from 'react-native';
 import { CalendarModal } from '../../../../UIKit/Calendar';
-import { DatePickerButton } from './components/datePickerButton';
+import { DatePickerButton } from '../components/datePickerButton';
 import { Button } from '../../../../UIKit/Button';
+import { SectorDropdown } from '../components/sectorDropdown';
+import { InvestTypeDropdown } from '../components/investTypeDropdown';
 
 export const InvestmentsCreateView: FC = observer(() => {
     const { t, colors } = useUiContext();
@@ -17,7 +19,7 @@ export const InvestmentsCreateView: FC = observer(() => {
     const { investment, onChangeValue, calendarVisible, openCalendar, closeCalendar, onChoseDate, onCreate } = useCreateInvestment();
 
     return (
-        <ScreenContainer containerStyle={styles.container} headerComponent={<HeaderWithBackButton title={t('createInvestments')} />} >
+        <ScreenContainer scrollEnabled isKeyboardAvoiding containerStyle={styles.container} headerComponent={<HeaderWithBackButton title={t('createInvestments')} />} >
             <AuthorizationInput value={investment?.name} onChangeText={(text: string) => { onChangeValue('name', text) }} placeholder={t('name')} />
             <View style={styles.doubleViewInputs}>
                 <AuthorizationInput containerStyle={styles.inputMarginRight} value={investment?.ticker} onChangeText={(text: string) => { onChangeValue('ticker', text) }} placeholder={t('ticker')} />
@@ -29,11 +31,11 @@ export const InvestmentsCreateView: FC = observer(() => {
                 <DatePickerButton date={investment.enteringDate} onPress={openCalendar} />
             </View>
             <AuthorizationInput value={investment?.broker} onChangeText={(text: string) => { onChangeValue('broker', text) }} placeholder={t('broker')} />
-            <AuthorizationInput value={investment?.type} onChangeText={(text: string) => { onChangeValue('type', text) }} placeholder={t('type')} />
-            <AuthorizationInput value={investment?.sector} onChangeText={(text: string) => { onChangeValue('sector', text) }} placeholder={t('sector')} />
+            <InvestTypeDropdown value={investment?.type} onChange={onChangeValue} />
+            <SectorDropdown value={investment?.sector} onChange={onChangeValue} />
             <AuthorizationInput value={investment?.comment} onChangeText={(text: string) => { onChangeValue('comment', text) }} placeholder={t('comment')} />
             <CalendarModal visible={calendarVisible} onDayPress={onChoseDate} onBackdropPress={closeCalendar} />
-            <Button text={t('save')} onPress={onCreate} />
+            <Button containerStyle={styles.button} text={t('save')} onPress={onCreate} />
         </ScreenContainer>
     );
 });
