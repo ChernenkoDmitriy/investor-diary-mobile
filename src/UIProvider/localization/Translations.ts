@@ -85,5 +85,10 @@ export const translations = {
         usd: 'USD',
         eur: 'EUR',
         gbp: 'GBP',
+        otherSector: 'Other sector',
+        otherInvestmentType: 'Other investment type',
+        conservativePart: 'Conservative part',
+        aggressivePart: 'Aggressive part',
+        otherPart: 'Other part', 
     }
 }

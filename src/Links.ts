@@ -5,6 +5,7 @@ export interface ILinks {
     user: string;
     userAvatar: string;
     investments: string;
+    exchangeRates: string;
 }
 
 class Links {
@@ -20,6 +21,7 @@ class Links {
         userAvatar: `${this._domain}/users/set-avatar`,
 
         investments: `${this._domain}/investments`,
+        exchangeRates: `${this._domain}/exchange-rates`,
 
     }
 
@@ -29,6 +31,7 @@ class Links {
     public get user() { return this._links.user; }
     public get userAvatar() { return this._links.userAvatar; }
     public get investments() { return this._links.investments; }
+    public get exchangeRates() { return this._links.exchangeRates; }
 
 }
 

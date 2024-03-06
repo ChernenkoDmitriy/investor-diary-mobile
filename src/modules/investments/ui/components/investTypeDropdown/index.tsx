@@ -14,16 +14,12 @@ export const InvestTypeDropdown: FC<IProps> = memo(({ value, onChange }) => {
     const styles = useMemo(() => getStyle(colors), [colors]);
 
     const ITEMS = [
-        { label: t('index'), value: 'Index' },
         { label: t('stock'), value: 'Stock' },
-        { label: t('ETF'), value: 'ETF' },
-        { label: t('bond'), value: 'Bond' },
         { label: t('crypto'), value: 'Crypto' },
-        { label: t('currency'), value: 'Currency' },
-        { label: t('commodity'), value: 'Commodity' },
         { label: t('obligation'), value: 'Obligation' },
         { label: t('deposit'), value: 'Deposit' },
-        { label: t('cash'), value: 'Cash' }
+        { label: t('cash'), value: 'Cash' },
+        { label: t('otherInvestmentType'), value: 'Other' }
     ]
 
     const onChangeValue = (value: { label: string; value: string; }) => {

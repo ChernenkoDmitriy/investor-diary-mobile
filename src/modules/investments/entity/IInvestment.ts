@@ -13,5 +13,5 @@ export interface IInvestment {
     sector: TSector,
 }
 
-export type TSector = 'Technology' | 'Finance' | 'Healthcare' | 'Consumer Cyclical' | 'Industrial' | 'Communication Services' | 'Consumer Defensive' | 'Energy' | 'Basic Materials' | 'Real Estate' | 'Utilities';
-export type TInvestmentType = 'Index' | 'Stock' | 'ETF' | 'Bond' | 'Crypto' | 'Currency' | 'Commodity' | 'Obligation' | 'Deposit' | 'Cash';
+export type TSector = 'Technology' | 'Finance' | 'Healthcare' | 'Consumer Cyclical' | 'Industrial' | 'Communication Services' | 'Consumer Defensive' | 'Energy' | 'Basic Materials' | 'Real Estate' | 'Utilities' | 'Other';
+export type TInvestmentType = 'Stock' | 'Crypto' | 'Obligation' | 'Deposit' | 'Cash' | 'Other';

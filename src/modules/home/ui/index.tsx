@@ -7,17 +7,21 @@ import { InvestmentListItem } from '../../investments/ui/components/investmentLi
 import { IInvestment } from '../../investments/entity/IInvestment';
 import { Button } from '../../../UIKit/Button';
 import { useHomeView } from '../presenters/useHomeView';
-import { investmentsModel } from '../../investments/entity/InvestmentsModel';
+import { Accordion } from '../../../UIKit/Accordion';
+import { AssetAllocationChart } from './components/assetAllocationChart';
 
 export const HomeView: FC = observer(() => {
     const { t } = useUiContext();
-    const { onGoToCreateInvestment, onGoToDetailInvestment } = useHomeView();
+    const { data, onGoToCreateInvestment, onGoToDetailInvestment } = useHomeView();
 
     return (
         <ScreenContainer edges={['top']} >
             <ScrollView >
-                {investmentsModel.investments?.map((investment: IInvestment) => (
-                    <InvestmentListItem key={investment.id} item={investment} onPress={onGoToDetailInvestment} />
+                <AssetAllocationChart />
+                {Object.keys(data).map((key) => (
+                    <Accordion key={key} title={key} >
+                        {data[key]?.map((investment: IInvestment) => (<InvestmentListItem key={investment.id} item={investment} onPress={onGoToDetailInvestment} />))}
+                    </Accordion>
                 ))}
             </ScrollView>
             <Button text={t('createInvestments')} onPress={onGoToCreateInvestment} />

@@ -15,8 +15,8 @@ export const ProfileHeader: FC = observer(() => {
         <View style={styles.container} >
             <Avatar size={60} name={userModel.user?.first_name} avatar={userModel.user?.avatar} />
             <View style={styles.textWrapper} >
-                <Typography type='h6' text={`${userModel.user?.first_name} ${userModel.user?.last_name}`} />
-                <Typography type='body2' text={userModel.user?.phone} />
+                <Typography variant='h6' text={`${userModel.user?.first_name} ${userModel.user?.last_name}`} />
+                <Typography variant='body2' text={userModel.user?.phone} />
             </View>
         </View>
     );

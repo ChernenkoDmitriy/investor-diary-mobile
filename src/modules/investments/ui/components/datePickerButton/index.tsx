@@ -15,8 +15,8 @@ export const DatePickerButton: FC<IProps> = memo(({ date, onPress }) => {
 
     return (
         <TouchableOpacity style={styles.container} onPress={onPress} >
-            <Typography type='caption' text={t('enteringDate')} />
-            <Typography type='body2' text={date} />
+            <Typography variant='caption' text={t('enteringDate')} />
+            <Typography variant='body2' text={date} />
         </TouchableOpacity>
     );
 });

@@ -8,8 +8,8 @@ import { updateInvestmentUseCase } from "../useCases/updateInvestmentUseCase";
 
 type InvestmentValue = 'name' | 'currency' | 'icon' | 'ticker' | 'comment' | 'broker' | 'enteringPrice' | 'enteringDate' | 'amount' | 'type' | 'sector';
 const DEFAULT_INVESTMENT: any = {
-    id: 0, name: '', currency: '', icon: '', ticker: '', comment: '',
-    broker: '', enteringPrice: 0, enteringDate: undefined, amount: 1, type: '', sector: '',
+    id: 0, name: '', currency: 'USD', icon: '', ticker: '', comment: '',
+    broker: '', enteringPrice: 0, enteringDate: undefined, amount: 1, type: 'Other', sector: 'Other',
 };
 
 export const useCreateInvestment = () => {

@@ -15,8 +15,8 @@ export const InvestmentDetailListItem: FC<IProps> = memo(({ label, value }) => {
 
     return (
         <View style={styles.container} >
-            <Typography type='body1' text={label} style={styles.label} />
-            <Typography type='h6' text={value} />
+            <Typography variant='body1' text={label} style={styles.label} />
+            <Typography variant='h6' text={value} />
         </View>
     );
 })

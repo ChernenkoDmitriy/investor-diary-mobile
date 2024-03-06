@@ -25,7 +25,7 @@ export const SectorDropdown: FC<IProps> = memo(({ value, onChange }) => {
         { label: t('basicMaterials'), value: 'Basic Materials' },
         { label: t('realEstate'), value: 'Real Estate' },
         { label: t('utilities'), value: 'Utilities' },
-        { label: t('undefined'), value: null },
+        { label: t('otherSector'), value: 'Other' },
     ]
 
     const onChangeValue = (value: { label: string; value: string; }) => {

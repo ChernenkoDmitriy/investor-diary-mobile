@@ -1,25 +1,26 @@
-import React, { FC, memo, useMemo } from 'react';
+import React, { FC, useMemo } from 'react';
 import { View } from "react-native";
 import { useUiContext } from '../../../../../UIProvider';
 import { getStyle } from './styles';
 import { Dropdown } from '../../../../../UIKit/Dropdown';
+import { observer } from 'mobx-react';
+import { exchangeRateModel } from '../../../../../entities/exchangeRates/ExchangeRateModel';
 
 interface IProps {
     value: string;
     onChange: (key: any, value: string) => void;
 }
 
-export const CurrencyDropdown: FC<IProps> = memo(({ value, onChange }) => {
+export const CurrencyDropdown: FC<IProps> = observer(({ value, onChange }) => {
     const { colors, t } = useUiContext();
     const styles = useMemo(() => getStyle(colors), [colors]);
 
-    const ITEMS: any = [
-        { label: t('uah'), value: 'UAH' },
-        { label: t('usd'), value: 'USD' },
-        { label: t('eur'), value: 'EUR' },
-        { label: t('gbp'), value: 'GBP' },
-        { label: t('undefined'), value: null },
-    ]
+    const ITEMS: any = useMemo(() => {
+        const items = exchangeRateModel.exchangeRates?.map((exchangeRate) => {
+            return { label: exchangeRate.currency, value: exchangeRate.currency }
+        }) || [];
+        return items;
+    }, [exchangeRateModel.exchangeRates]);
 
     const onChangeValue = (value: { label: string; value: string; }) => {
         onChange('currency', value.value);
