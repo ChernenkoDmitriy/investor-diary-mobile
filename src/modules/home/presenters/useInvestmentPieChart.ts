@@ -29,10 +29,8 @@ export const useInvestmentPieChart = () => {
                 result.otherPart.value += price * investment.amount;
             }
         });
-        const total = result.conservativePart.value + result.aggressivePart.value + result.otherPart.value;
-        result.conservativePart.percentage = Math.round(result.conservativePart.value / total * 100);
-        result.aggressivePart.percentage = Math.round(result.aggressivePart.value / total * 100);
-        result.otherPart.percentage = Math.round(result.otherPart.value / total * 100);
+        const total = Object.values(result).reduce((acc, item) => acc + item.value, 0);
+        Object.values(result).forEach((item) => { item.percentage = Math.round(item.value / total * 100); });
         return Object.values(result);
     }, [investmentsModel.investments, exchangeRateModel.exchangeRates]);
 

@@ -23,12 +23,12 @@ export const InvestmentsCreateView: FC = observer(() => {
         <ScreenContainer scrollEnabled isKeyboardAvoiding containerStyle={styles.container} headerComponent={<HeaderWithBackButton title={t('createInvestments')} />} >
             <AuthorizationInput value={investment?.name} onChangeText={(text: string) => { onChangeValue('name', text) }} placeholder={t('name')} />
             <View style={styles.doubleViewInputs}>
-                <AuthorizationInput containerStyle={styles.inputMarginRight} value={investment?.ticker} onChangeText={(text: string) => { onChangeValue('ticker', text) }} placeholder={t('ticker')} />
+                <AuthorizationInput autoCapitalize='characters' containerStyle={styles.inputMarginRight} value={investment?.ticker} onChangeText={(text: string) => { onChangeValue('ticker', text) }} placeholder={t('ticker')} />
                 <CurrencyDropdown value={investment?.currency} onChange={onChangeValue} />
             </View>
             <View style={styles.tripleViewInputs}>
-                <AuthorizationInput containerStyle={styles.inputMarginRight} value={String(investment?.enteringPrice)} onChangeText={(text: string) => { onChangeValue('enteringPrice', text) }} placeholder={t('enteringPrice')} />
-                <AuthorizationInput containerStyle={styles.inputMarginRight} value={String(investment?.amount)} onChangeText={(text: string) => { onChangeValue('amount', text) }} placeholder={t('amount')} />
+                <AuthorizationInput keyboardType='numeric' containerStyle={styles.inputMarginRight} value={String(investment?.enteringPrice)} onChangeText={(text: string) => { onChangeValue('enteringPrice', text) }} placeholder={t('enteringPrice')} />
+                <AuthorizationInput keyboardType='numeric' containerStyle={styles.inputMarginRight} value={String(investment?.amount)} onChangeText={(text: string) => { onChangeValue('amount', text) }} placeholder={t('amount')} />
                 <DatePickerButton date={investment.enteringDate} onPress={openCalendar} />
             </View>
             <InvestTypeDropdown value={investment?.type} onChange={onChangeValue} />

@@ -90,5 +90,6 @@ export const translations = {
         conservativePart: 'Conservative part',
         aggressivePart: 'Aggressive part',
         otherPart: 'Other part', 
+        other: 'Other',
     }
 }

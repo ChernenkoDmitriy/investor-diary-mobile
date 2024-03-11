@@ -9,6 +9,7 @@ import { Button } from '../../../UIKit/Button';
 import { useHomeView } from '../presenters/useHomeView';
 import { Accordion } from '../../../UIKit/Accordion';
 import { AssetAllocationChart } from './components/assetAllocationChart';
+import { StockSectorsChart } from './components/stockSectorsChart';
 
 export const HomeView: FC = observer(() => {
     const { t } = useUiContext();
@@ -17,6 +18,7 @@ export const HomeView: FC = observer(() => {
     return (
         <ScreenContainer edges={['top']} >
             <ScrollView >
+                <StockSectorsChart />
                 <AssetAllocationChart />
                 {Object.keys(data).map((key) => (
                     <Accordion key={key} title={key} >
