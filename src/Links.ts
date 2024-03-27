@@ -6,6 +6,9 @@ export interface ILinks {
     userAvatar: string;
     investments: string;
     exchangeRates: string;
+    mmTransactions: string;
+    mmSpendingCategories: string;
+    mmPaymentSources: string;
 }
 
 class Links {
@@ -23,6 +26,10 @@ class Links {
         investments: `${this._domain}/investments`,
         exchangeRates: `${this._domain}/exchange-rates`,
 
+        mmTransactions: `${this._domain}/mm-transactions`,
+        mmSpendingCategories: `${this._domain}/spending-categories`,
+        mmPaymentSources: `${this._domain}/mm-payment-sources`,
+
     }
 
     public get signIn() { return this._links.signIn; }
@@ -32,6 +39,9 @@ class Links {
     public get userAvatar() { return this._links.userAvatar; }
     public get investments() { return this._links.investments; }
     public get exchangeRates() { return this._links.exchangeRates; }
+    public get mmTransactions() { return this._links.mmTransactions; }
+    public get mmSpendingCategories() { return this._links.mmSpendingCategories; }
+    public get mmPaymentSources() { return this._links.mmPaymentSources; }
 
 }
 

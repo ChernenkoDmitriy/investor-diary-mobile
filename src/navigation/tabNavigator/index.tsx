@@ -6,6 +6,8 @@ import { ProfileView } from '../../modules/profile/ui/Profile';
 import { ProfileIcon } from '../../assets/icons/ProfileIcon';
 import { HomeIcon } from '../../assets/icons/HomeIcon';
 import { HomeView } from '../../modules/home/ui';
+import { MmTransactionsView } from '../../modules/moneyManager/ui/MmTransactions';
+import { BanknoteIcon } from '../../assets/icons/BanknoteIcon';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,6 +22,16 @@ export const TabNavigator: FC = observer(() => {
                 options={{
                     tabBarIcon: ({ focused }) => <HomeIcon color={focused ? colors.primary : colors.icon_strong} />,
                     tabBarLabel: t('home'),
+                    tabBarActiveTintColor: colors.primary,
+                    tabBarInactiveTintColor: colors.icon_strong,
+                }}
+            />
+            <Tab.Screen
+                name='MmTransactionsView'
+                component={MmTransactionsView}
+                options={{
+                    tabBarIcon: ({ focused }) => <BanknoteIcon color={focused ? colors.primary : colors.icon_strong} />,
+                    tabBarLabel: t('moneyManager'),
                     tabBarActiveTintColor: colors.primary,
                     tabBarInactiveTintColor: colors.icon_strong,
                 }}

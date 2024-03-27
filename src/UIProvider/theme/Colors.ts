@@ -24,5 +24,6 @@ export const COLORS: { light: IColors } = {
         primary_secondary: '#20D393',
 
         warning: '#FF725E',
+        success: '#20D393',
     },
 };

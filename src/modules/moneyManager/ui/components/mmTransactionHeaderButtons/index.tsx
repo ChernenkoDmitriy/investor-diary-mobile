@@ -10,7 +10,7 @@ interface IProps {
     onEdit: () => void;
 }
 
-export const InvestmentsHeaderButtons: FC<IProps> = memo(({ onEdit, onDelete }) => {
+export const MmTransactionHeaderButtons: FC<IProps> = memo(({ onEdit, onDelete }) => {
     const { colors } = useUiContext();
     const styles = useMemo(() => getStyle(colors), [colors]);
 

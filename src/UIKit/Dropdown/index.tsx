@@ -4,8 +4,8 @@ import { getStyle } from './styles';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 interface IProps {
-    value: string;
-    items: { label: string, value: string }[];
+    value: string | number | null;
+    items: { label: string, value: string | number }[];
     placeholder?: string;
     setValue: (value: { label: string, value: string }) => void;
 }

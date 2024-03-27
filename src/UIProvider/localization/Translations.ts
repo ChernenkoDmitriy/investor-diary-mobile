@@ -16,6 +16,13 @@ export const translations = {
         // investments details  screen end
         sureDeleteInvestment: 'Are you sure you want to delete this investment?',
         // header start
+        createTransaction: 'Create transaction',
+        category: 'Category',
+        expense: 'Expense',
+        income: 'Income',
+        sureDeleteMmTransaction: 'Are you sure you want to delete this transaction?',
+        transaction: 'Transaction',
+        direction: 'Direction',
 
         for: 'for',
         home: 'Home',
@@ -91,5 +98,6 @@ export const translations = {
         aggressivePart: 'Aggressive part',
         otherPart: 'Other part', 
         other: 'Other',
+        moneyManager: 'Money manager',
     }
 }

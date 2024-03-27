@@ -4,12 +4,16 @@ import { IInvestment } from "../../investments/entity/IInvestment";
 import { useEffect, useMemo } from "react";
 import { investmentsModel } from "../../investments/entity/InvestmentsModel";
 import { useLaunchAppUseCase } from "../useCases/useLaunchAppUseCase";
+import { getMmSpendingCategoriesUseCase } from "../../moneyManager/useCases/getMmSpendingCategoriesUseCase";
+import { getMmPaymentSourceServiceUseCase } from "../../moneyManager/useCases/getMmPaymentSourceServiceUseCase";
 
 export const useHomeView = () => {
     const navigation = useNavigation<StackNavigationProp<any>>();
 
     useEffect(() => {
         useLaunchAppUseCase();
+        getMmSpendingCategoriesUseCase();
+        getMmPaymentSourceServiceUseCase();
     }, []);
 
     const onGoToCreateInvestment = () => {

@@ -24,4 +24,5 @@ export type IColors = {
     primary_secondary: string;
 
     warning: string;
+    success: string;
 }
