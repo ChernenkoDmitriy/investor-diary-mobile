@@ -23,7 +23,8 @@ export const translations = {
         sureDeleteMmTransaction: 'Are you sure you want to delete this transaction?',
         transaction: 'Transaction',
         direction: 'Direction',
-
+        clear: 'Clear',
+        submit: 'Submit',
         for: 'for',
         home: 'Home',
         profile: 'Profile',
@@ -96,7 +97,7 @@ export const translations = {
         otherInvestmentType: 'Other investment type',
         conservativePart: 'Conservative part',
         aggressivePart: 'Aggressive part',
-        otherPart: 'Other part', 
+        otherPart: 'Other part',
         other: 'Other',
         moneyManager: 'Money manager',
     }

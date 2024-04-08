@@ -8,11 +8,9 @@ interface IProps extends TextProps {
     text?: string;
 }
 
-export const Typography: FC<IProps> = memo((props) => {
+export const Typography: FC<IProps> = memo(({ variant = 'body1', text, ...props }) => {
     const { colors } = useUiContext();
     const styles = useMemo(() => getStyle(colors), [colors]);
-    const type = props.variant || 'body1';
-    const propStyle = typeof props.style === 'object' ? props.style : {};
 
-    return (<Text {...props} style={{ ...styles[type], ...propStyle }} >{props.text}</Text>)
+    return (<Text {...props} style={[styles[variant], props.style]} >{text}</Text>)
 })

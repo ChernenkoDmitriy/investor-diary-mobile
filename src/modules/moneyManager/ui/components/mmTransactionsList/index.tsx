@@ -7,7 +7,7 @@ import { useRefresh } from '../../../../../hooks/useRefresh';
 import { useMmTransactionsList } from '../../../presenters/useMmTransactionsList';
 import { MmTransactionListItem } from '../mmTransactionListItem';
 import { observer } from 'mobx-react';
-import { Typography } from '../../../../../UIKit/Typography';
+import { MmTransactionSectionHeader } from '../mmTransactionSectionHeader';
 
 export const MmTransactionsList: FC = observer(() => {
     const { colors, t } = useUiContext();
@@ -20,7 +20,7 @@ export const MmTransactionsList: FC = observer(() => {
     }, []);
 
     const renderSectionHeader = useCallback(({ section: { title } }: any) => {
-        return <Typography text={title} variant='h6' style={styles.title} />
+        return <MmTransactionSectionHeader title={title} />
     }, []);
 
     const keyExtractor = useCallback((item: IMmTransaction) => item.id?.toString(), []);

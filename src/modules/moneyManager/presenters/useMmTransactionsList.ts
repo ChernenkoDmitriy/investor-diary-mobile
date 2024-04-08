@@ -52,7 +52,5 @@ export const useMmTransactionsList = () => {
         return Object.keys(sections).map((date) => ({ title: date, data: sections[date] })) || [];
     }, [transactions]);
 
-    console.log('data: ', data);
-
     return { loading, data, onEndReached, onRefresh, onGoToDetailInvestment };
 }

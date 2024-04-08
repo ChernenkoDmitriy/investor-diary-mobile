@@ -3,6 +3,7 @@ import { TMmTransactionUsParams, mmTransactionService } from "../entities/mmTran
 
 export const getMmTransactionUseCase = async (params?: TMmTransactionUsParams) => {
     try {
+        console.log('getMmTransactionUseCase: ', params);
         const { data, isError, message } = await mmTransactionService.get(params);
         if (!isError) {
             const nextTransactions = mmTransactionModel.mmTransactions ? mmTransactionModel.mmTransactions : [];
