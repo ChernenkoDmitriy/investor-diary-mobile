@@ -13,7 +13,7 @@ export const useMmTransactionsList = () => {
     const transactions = mmTransactionModel.mmTransactions;
 
     useEffect(() => {
-        getMmTransactionUseCase();
+        getTransactions();
     }, []);
 
     const getTransactions = async (params?: TMmTransactionUsParams) => {

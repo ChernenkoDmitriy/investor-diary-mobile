@@ -22,7 +22,6 @@ export const useInvestmentDetails = () => {
                 },
             },
         ]);
-
     }
 
     const onEdit = () => {

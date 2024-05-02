@@ -16,6 +16,7 @@ export const translations = {
         // investments details  screen end
         sureDeleteInvestment: 'Are you sure you want to delete this investment?',
         // header start
+        transport: 'Transport',
         createTransaction: 'Create transaction',
         category: 'Category',
         expense: 'Expense',
@@ -100,5 +101,10 @@ export const translations = {
         otherPart: 'Other part',
         other: 'Other',
         moneyManager: 'Money manager',
+        food: 'Food',
+        family: 'Family',
+        entertainment: 'Entertainment',
+        kids: 'Kids',
+        clothes: 'Clothes',
     }
 }

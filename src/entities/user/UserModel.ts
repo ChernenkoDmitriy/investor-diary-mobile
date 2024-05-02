@@ -13,10 +13,10 @@ class UserModel implements IUserModel {
     private userRepository = new MobXRepository<IUser | null>(null);
 
     constructor(private storage: IStorage) {
-        this.loadUser();
+        this.load();
     }
 
-    private loadUser = () => {
+    private load = () => {
         this.storage.get('STORAGE_USER')
             .then(data => { data && this.userRepository.save(data); })
             .catch(error => console.warn('UserModel -> loadUser: ', error));

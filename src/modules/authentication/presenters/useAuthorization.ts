@@ -44,7 +44,7 @@ export const useAuthorization = () => {
     const onSignIn = async () => {
         Keyboard.dismiss();
         appStateModel.isLoading = true;
-        const response = await signInUseCase({ phone, password });
+        const response = await signInUseCase({ login: phone, password });
         if (response?.isError) {
             setAuthorizationError(true);
         }

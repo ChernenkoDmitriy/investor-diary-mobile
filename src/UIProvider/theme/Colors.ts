@@ -2,8 +2,8 @@ import { IColors } from "./IColors";
 
 export const COLORS: { light: IColors } = {
     light: {
-        background: '#FCFBFC',
-        card: '#ECECEC',
+        background: '#EDF1F4',
+        card: '#FFFFFF',
         text: '#272A32',
         border: '#00626C',
         notification: ' ',

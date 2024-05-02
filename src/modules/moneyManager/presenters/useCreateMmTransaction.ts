@@ -6,7 +6,7 @@ import { createMmTransactionUseCase } from "../useCases/createMmTransactionUseCa
 import { IMmTransaction } from "../entities/mmTransaction/IMmTransaction";
 import { updateMmTransactionUseCase } from "../useCases/updateMmTransactionUseCase";
 
-const DEFAULT_TRANSACTION = { currency: 'UAH', amount: 0, direction: 'expense', date: new Date().toLocaleDateString(), category_id: null, source_id: null };
+const DEFAULT_TRANSACTION = { currency: 'UAH', amount: 0, direction: 'expense', date: new Date().toISOString().split('T')[0], category_id: null, source_id: null };
 
 export const useCreateMmTransaction = () => {
     const item: IMmTransaction = useRoute<any>().params?.item;

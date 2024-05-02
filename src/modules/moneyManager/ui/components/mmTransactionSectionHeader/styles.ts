@@ -8,7 +8,7 @@ export const getStyle = (colors: IColors) => {
             height: scaleVertical(40),
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: colors.background,
+            backgroundColor: colors.card,
         },
         title: {
             marginHorizontal: 16,

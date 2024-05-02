@@ -6,6 +6,7 @@ import { MmTransactionsList } from '../components/mmTransactionsList';
 import { FloatingButton } from '../../../../UIKit/FloatingButton';
 import { useMmTransactions } from '../../presenters/useMmTransactions';
 import { MmTransactionsHeader } from '../components/mmTransactionsHeader';
+import { MmPieChart } from '../components/mmPieChart';
 
 export const MmTransactionsView: FC = observer(() => {
     const { t } = useUiContext();
@@ -13,7 +14,8 @@ export const MmTransactionsView: FC = observer(() => {
 
     return (
         <ScreenContainer edges={['top']} >
-            <MmTransactionsHeader onGetTransactionsPeriod={onGetTransactionsPeriod} onClear={onClear}/>
+            <MmPieChart />
+            <MmTransactionsHeader onGetTransactionsPeriod={onGetTransactionsPeriod} onClear={onClear} />
             <MmTransactionsList />
             <FloatingButton onPress={onGoToCreateTransaction} />
         </ScreenContainer>
