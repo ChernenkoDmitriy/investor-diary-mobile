@@ -3,15 +3,16 @@ import { View, } from 'react-native';
 import { useUiContext } from '../../UIProvider';
 import { getStyle } from './styles';
 import Modal from 'react-native-modal';
-import { Calendar, DateData } from 'react-native-calendars';
+import { Calendar, CalendarProps, DateData } from 'react-native-calendars';
 
 interface IProps {
     onDayPress: (day: DateData) => void;
     visible: boolean;
     onBackdropPress?: () => void;
+    calendarProps?: CalendarProps;
 }
 
-export const CalendarModal: FC<IProps> = memo(({ visible, onDayPress, onBackdropPress }) => {
+export const CalendarModal: FC<IProps> = memo(({ visible, onDayPress, onBackdropPress, calendarProps = {} }) => {
     const { colors } = useUiContext();
     const styles = useMemo(() => getStyle(colors), [colors]);
 
@@ -27,9 +28,24 @@ export const CalendarModal: FC<IProps> = memo(({ visible, onDayPress, onBackdrop
         >
             <View style={styles.container}>
                 <Calendar
-                    minDate='2024-01-01'
                     onDayPress={onDayPress}
                     style={styles.calendar}
+                    theme={{
+                        calendarBackground: colors.background,
+                        textSectionTitleColor: colors.text,
+                        selectedDayBackgroundColor: colors.primary,
+                        selectedDayTextColor: colors.text,
+                        todayTextColor: colors.primary,
+                        dayTextColor: colors.text,
+                        dotColor: colors.primary,
+                        selectedDotColor: colors.primary,
+                        arrowColor: colors.primary,
+                        monthTextColor: colors.primary,
+                        textDayFontFamily: 'Poppins-Medium',
+                        textMonthFontFamily: 'Poppins-Medium',
+                        textDayHeaderFontFamily: 'Poppins-Medium',
+                    }}
+                    {...calendarProps}
                 />
             </View>
         </Modal>

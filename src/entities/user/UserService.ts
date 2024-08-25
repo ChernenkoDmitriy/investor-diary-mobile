@@ -13,7 +13,7 @@ class UserService {
     ) { }
 
     signIn = async (body: UserSignInDto): Promise<IResponse<{ user: IUser; accessToken: string; }>> => {
-        try { 
+        try {
             const response = await this.requester.post(this.links.signIn, body);
             return response;
         } catch (error) {
@@ -34,7 +34,8 @@ class UserService {
 
     profile = async (): Promise<IResponse<IUser>> => {
         try {
-            const response = await this.requester.get(this.links.profile);
+            const url = this.links.user + '/' + userModel.user?.id;
+            const response = await this.requester.get(url);
             if (!response.isError && response.data) {
                 userModel.user = response.data;
             }
@@ -42,19 +43,6 @@ class UserService {
         } catch (error) {
             console.warn('UserService -> getUser: ', error);
             return { isError: true, data: null, message: '' } as any;
-        }
-    }
-
-    updateAvatar = async (formData: FormData): Promise<IResponse<any>> => {
-        try {
-            const response = await this.requester.postFormData(this.links.userAvatar, formData);
-            if (!response.isError && response.data) {
-                userModel.user = response.data;
-            }
-            return response;
-        } catch (error) {
-            console.error('MetadialogService -> create: ', error);
-            return null as any;
         }
     }
 

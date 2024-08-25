@@ -8,6 +8,8 @@ import { HomeIcon } from '../../assets/icons/HomeIcon';
 import { HomeView } from '../../modules/home/ui';
 import { MmTransactionsView } from '../../modules/moneyManager/ui/MmTransactions';
 import { BanknoteIcon } from '../../assets/icons/BanknoteIcon';
+import { SmartTasksView } from '../../modules/smartTasks/ui/SmartTasks';
+import { TargetIcon } from '../../assets/icons/TargetIcon';
 
 const Tab = createBottomTabNavigator();
 
@@ -32,6 +34,16 @@ export const TabNavigator: FC = observer(() => {
                 options={{
                     tabBarIcon: ({ focused }) => <BanknoteIcon color={focused ? colors.primary : colors.icon_strong} />,
                     tabBarLabel: t('moneyManager'),
+                    tabBarActiveTintColor: colors.primary,
+                    tabBarInactiveTintColor: colors.icon_strong,
+                }}
+            />
+            <Tab.Screen
+                name='SmartTasksView'
+                component={SmartTasksView}
+                options={{
+                    tabBarIcon: ({ focused }) => <TargetIcon color={focused ? colors.primary : colors.icon_strong} />,
+                    tabBarLabel: t('smartTasks'),
                     tabBarActiveTintColor: colors.primary,
                     tabBarInactiveTintColor: colors.icon_strong,
                 }}

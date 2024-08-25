@@ -6,15 +6,20 @@ import { investmentsModel } from "../../investments/entity/InvestmentsModel";
 import { useLaunchAppUseCase } from "../useCases/useLaunchAppUseCase";
 import { getMmSpendingCategoriesUseCase } from "../../moneyManager/useCases/getMmSpendingCategoriesUseCase";
 import { getMmPaymentSourceServiceUseCase } from "../../moneyManager/useCases/getMmPaymentSourceServiceUseCase";
+import { candidatesService } from "../../../entities/sectors/SectorsService";
+import { sectorsModel } from "../../../entities/sectors/SectorsModel";
 
 export const useHomeView = () => {
     const navigation = useNavigation<StackNavigationProp<any>>();
 
     useEffect(() => {
+        candidatesService.all();
         useLaunchAppUseCase();
         getMmSpendingCategoriesUseCase();
         getMmPaymentSourceServiceUseCase();
     }, []);
+
+    console.log('investmentsModel.investments', sectorsModel.all);
 
     const onGoToCreateInvestment = () => {
         navigation.navigate('InvestmentsCreateView');

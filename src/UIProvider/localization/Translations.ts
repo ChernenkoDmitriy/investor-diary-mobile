@@ -16,6 +16,46 @@ export const translations = {
         // investments details  screen end
         sureDeleteInvestment: 'Are you sure you want to delete this investment?',
         // header start
+        sureDeleteItem: 'Are you sure you want to delete this item?',
+        // Smart tasks start
+        noSmartTasksYet: 'No smart tasks yet',
+
+        deposit: 'Deposit',
+        credit: 'Credit',
+        dividends: 'Dividends',
+        financial_cushion: 'Financial cushion',
+        other: 'Other',
+        active: 'Active',
+        inactive: 'Inactive',
+        completed: 'Completed',
+        canceled: 'Canceled',
+        paused: 'Paused',
+        failed: 'Failed',
+
+        specific: 'Specific',
+        measurable: 'Measurable',
+        achievable: 'Achievable',
+        relevant: 'Relevant',
+        time_bound: 'Time bound',
+        progress_value: 'Progress value',
+
+        description_name: 'Short name of the goal.',
+        description_specific: 'A SMART goal must be specific so that it cannot be interpreted in different ways.',
+        description_measurable: 'The goal should be measurable so that you can determine how close you are to achieving the result.',
+        description_achievable: 'The goal must be achievable and open up new opportunities.',
+        description_relevant: 'The goal should match your needs. A meaningful goal will bring you closer to achieving global strategic objectives.',
+        description_time_bound: 'The goal must have a clear deadline. This will help you focus your efforts on achieving the goal.',
+
+        placeholder_name: 'Enter name',
+        placeholder_measurable: 'Enter measurable, for example: 10000',
+        placeholder_achievable: 'Enter achievable',
+        placeholder_relevant: 'Enter relevant',
+        placeholder_time_bound: 'Enter time bound',
+
+        // Smart tasks end
+
+
+
         transport: 'Transport',
         createTransaction: 'Create transaction',
         category: 'Category',
@@ -106,5 +146,7 @@ export const translations = {
         entertainment: 'Entertainment',
         kids: 'Kids',
         clothes: 'Clothes',
+        smartTasks: 'Smart tasks',
+        createSmartTasks: 'Create smart tasks',
     }
 }

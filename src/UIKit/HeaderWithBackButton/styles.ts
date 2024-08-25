@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'; 
+import { StyleSheet } from 'react-native';
 import { IColors } from '../../UIProvider/theme/IColors';
 
 export const getStyle = (colors: IColors) => {
@@ -22,9 +22,11 @@ export const getStyle = (colors: IColors) => {
             justifyContent: 'center',
         },
         title: {
-            fontSize: 18,
+            fontSize: 16,
+            lineHeight: 24,
+            fontWeight: '700',
             fontFamily: 'Roboto-Regular',
-            color: colors.text_middle,
+            color: colors.text_strong,
         },
     });
     return styles;

@@ -13,7 +13,6 @@ export const getStyle = (colors: IColors) => {
             borderColor: colors.border,
             borderWidth: 1,
             borderRadius: 6,
-            flex: 0.8,
         },
     });
     return styles;

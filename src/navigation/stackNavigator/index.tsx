@@ -9,6 +9,8 @@ import { InvestmentsCreateView } from '../../modules/investments/ui/InvestmentsC
 import { InvestmentsDetailsView } from '../../modules/investments/ui/InvestmentsDetails';
 import { MmTransactionCreateView } from '../../modules/moneyManager/ui/MmTransactionCreate';
 import { MmTransactionDetails } from '../../modules/moneyManager/ui/MmTransactionDetails';
+import { SmartTasksCreateView } from '../../modules/smartTasks/ui/SmartTasksCreate';
+import { SmartTasksDetailsView } from '../../modules/smartTasks/ui/SmartTasksDetails';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +25,8 @@ export const MainStackNavigator: FC = observer(() => {
             <Stack.Screen name='InvestmentsCreateView' component={InvestmentsCreateView} />
             <Stack.Screen name='MmTransactionCreateView' component={MmTransactionCreateView} />
             <Stack.Screen name='MmTransactionDetails' component={MmTransactionDetails} />
+            <Stack.Screen name='SmartTasksCreateView' component={SmartTasksCreateView} />
+            <Stack.Screen name='SmartTasksDetailsView' component={SmartTasksDetailsView} />
         </Stack.Navigator >
     );
 });

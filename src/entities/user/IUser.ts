@@ -4,5 +4,5 @@ export interface IUser {
     phone: string;
     first_name: string;
     last_name: string;
-    avatar: string | null;
+    image: object | null;
 }

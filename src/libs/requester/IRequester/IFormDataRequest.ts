@@ -1,3 +1,3 @@
 export interface IFormDataRequest {
-    postFormData: (url: string, body: FormData) => Promise<any>;
+    formData: (url: string, body: FormData, method?: 'POST' | 'PATCH') => Promise<any>;
 }

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import Svg, { Path, G } from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
 export const BanknoteIcon: FC<{ width?: number, height?: number, color?: string }> = ({ width, height, color }) => {
     return (

@@ -18,10 +18,10 @@ class FetchRequester implements IRequester {
         return result;
     }
 
-    postFormData = async (url: string, data: FormData) => {
+    formData = async (url: string, data: FormData, method: 'POST' | 'PATCH' = 'POST') => {
         try {
             const response = await fetch(url, {
-                method: 'POST',
+                method,
                 headers: { 'Accept': '*/*', 'Content-Type': 'multipart/form-data', 'authorization': `Bearer ${userModel?.token}` },
                 body: data,
             });
