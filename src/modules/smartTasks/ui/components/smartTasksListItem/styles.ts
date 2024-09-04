@@ -9,6 +9,7 @@ export const getStyle = (colors: IColors) => {
             backgroundColor: colors.card,
             borderRadius: 8,
             marginBottom: scaleVertical(16),
+            height: scaleVertical(110),
             shadowOffset: {
                 width: 0,
                 height: 1,
@@ -24,6 +25,26 @@ export const getStyle = (colors: IColors) => {
         infoContainer: {
             paddingHorizontal: scaleHorizontal(12),
             paddingVertical: scaleVertical(8),
+            flex: 1,
+        },
+        row:{
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginTop: scaleVertical(8),
+            justifyContent: 'space-between',
+        },
+        label:{
+            color: colors.text,
+            fontSize: scaleFontSize(14),
+            lineHeight: scaleFontSize(16),
+            fontFamily: 'Roboto-Regular',
+        },
+        value:{
+            color: colors.text_strong,
+            fontSize: scaleFontSize(14),
+            lineHeight: scaleFontSize(16),
+            fontFamily: 'Roboto-Regular',
+            fontWeight: '500',
         }
     });
     return styles;

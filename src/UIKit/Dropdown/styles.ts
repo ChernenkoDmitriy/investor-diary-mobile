@@ -1,14 +1,14 @@
 import { StyleSheet } from 'react-native';
 import { IColors } from '../../UIProvider/theme/IColors';
+import { scaleVertical } from '../../utils';
 
 export const getStyle = (colors: IColors) => {
     return StyleSheet.create({
         dropdown: {
             borderRadius: 6,
             borderColor: colors.border,
-            backgroundColor: colors.background,
             paddingHorizontal: 16,
-            height: 54,
+            minHeight: scaleVertical(36),
         },
         dropDownContainerStyle: {
             borderColor: colors.border,
@@ -16,5 +16,9 @@ export const getStyle = (colors: IColors) => {
         listItemContainerStyle: {
             paddingHorizontal: 16,
         },
+        dropdownSelectedItemContainer: {
+            height: scaleVertical(36),
+            backgroundColor: colors.primary + '14'
+        }
     });
 }

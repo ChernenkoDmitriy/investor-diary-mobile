@@ -1,11 +1,9 @@
 import { StyleSheet } from 'react-native';
 import { IColors } from '../../../../../UIProvider/theme/IColors';
-import { scaleVertical } from '../../../../../utils';
 
 export const getStyle = (_colors: IColors) => {
     return StyleSheet.create({
         container: {
-            height: scaleVertical(200),
             flexDirection: 'row',
             paddingHorizontal: 16,
             marginVertical: 16,

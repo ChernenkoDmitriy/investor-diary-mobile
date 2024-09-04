@@ -4,6 +4,9 @@ import { useUiContext } from '../../../../../UIProvider';
 import { getStyle } from './styles';
 import { observer } from 'mobx-react';
 import { ISmartTask } from '../../../entity/ISmartTask';
+import { NLTProgressBar } from '../../../../../UIKit/NLTProgressBar';
+import { Typography } from '../../../../../UIKit/Typography';
+import { format } from 'date-fns';
 
 interface IProps {
     item: ISmartTask;
@@ -22,10 +25,17 @@ export const SmartTasksListItem: FC<IProps> = observer(({ item, onPress }) => {
         <TouchableOpacity style={styles.container} onPress={onHandlePress} >
             <View style={styles.indicator} />
             <View style={styles.infoContainer}>
-                <Text>{item.name}</Text>
-                <Text>{item.progress_value}</Text>
-                <Text>{item.progress_value_percent}</Text>
+                <Typography variant='label' numberOfLines={1} text={item.name} />
+                <View style={styles.row}>
+                    <Text style={styles.label}>{t('measurable')}</Text>
+                    <Text style={styles.value}>{item.progress_value} {item.currency || ''}</Text>
+                </View>
+                <View style={styles.row}>
+                    <Text style={styles.label}>{t('time_bound')}</Text>
+                    <Text style={styles.value}>{format(item.time_bound, 'LLL dd, y')}</Text>
+                </View>
+                <NLTProgressBar progressPercent={item.progress_value_percent} />
             </View>
         </TouchableOpacity>
     );
-})
+});

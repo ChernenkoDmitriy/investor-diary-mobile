@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
 import { IColors } from '../../../../../UIProvider/theme/IColors';
+import { scaleFontSize, scaleVertical } from '../../../../../utils';
 
 export const getStyles = (colors: IColors) => {
     const styles = StyleSheet.create({
         container: {
-            paddingLeft: 16,
-            height: 42,
+            height: scaleVertical(40),
             width: '100%',
             flexDirection: 'row',
             alignItems: 'center',
@@ -19,15 +19,13 @@ export const getStyles = (colors: IColors) => {
         },
         textContainer: {
             flex: 1,
-            
-            height: 36,
-            borderBottomWidth: 1,
-            borderBottomColor: colors.border,
             justifyContent: 'center',
         },
         title: {
             color: colors.text,
             fontFamily: 'Roboto-Regular',
+            fontSize: scaleFontSize(16),
+            lineHeight: scaleVertical(24),
         },
     });
     return styles;

@@ -12,9 +12,9 @@ export const useMmTransactionsList = () => {
     const navigation = useNavigation<StackNavigationProp<any>>();
     const transactions = mmTransactionModel.mmTransactions;
 
-    useEffect(() => {
-        getTransactions();
-    }, []);
+    // useEffect(() => {
+    //     getTransactions();
+    // }, []);
 
     const getTransactions = async (params?: TMmTransactionUsParams) => {
         setLoading(true);

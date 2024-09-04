@@ -21,6 +21,7 @@ export const Dropdown: FC<IProps> = memo(({ value, items, placeholder, setValue 
         <DropDownPicker
             closeOnBackPressed={true}
             style={styles.dropdown}
+            selectedItemContainerStyle={styles.dropdownSelectedItemContainer}
             dropDownContainerStyle={styles.dropDownContainerStyle}
             listItemContainerStyle={styles.listItemContainerStyle}
             open={open}

@@ -6,7 +6,7 @@ import { ISmartTask } from "../entity/ISmartTask";
 import { smartTaskService } from "../entity/SmartTaskService";
 
 type TItemValues = 'name' | 'specific' | 'measurable' | 'achievable' | 'relevant' | 'time_bound' | 'currency' | 'status';
-const DEFAULT_ITEM: any = { name: '', specific: 'Deposit', measurable: '', achievable: '', relevant: '', time_bound: '', currency: '', status: 'Active', };
+const DEFAULT_ITEM: any = { name: '', specific: 'Deposit', measurable: '', achievable: '', relevant: '', time_bound: '', currency: 'UAH', status: 'Active', };
 
 export const useSmartTasksCreate = () => {
     const item: ISmartTask = useRoute<any>().params?.item;

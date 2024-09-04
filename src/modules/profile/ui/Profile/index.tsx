@@ -13,7 +13,7 @@ export const ProfileView: FC = observer(() => {
     const { onExit } = useProfile();
 
     return (
-        <ScreenContainer >
+        <ScreenContainer edges={[]} >
             <ProfileHeader />
             <ProfileItemsContainer >
                 <ProfileItem text={t('exit')} icon={<ExitIcon />} onPress={onExit} />

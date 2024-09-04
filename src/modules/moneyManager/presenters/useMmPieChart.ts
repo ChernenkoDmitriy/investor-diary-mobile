@@ -22,7 +22,7 @@ export const useMmPieChart = () => {
 
             const category = mmSpendingCategoryModel.mmSpendingCategories?.find((category) => category.id === transaction.category?.id);
             if (category && !result[category.name]) {
-                result[category.name] = { color: category.color, value: Number(price), legend: category.name, percentage: 0 };
+                result[category.name] = { color: category.color, value: Number(price), legend: category.slug, percentage: 0 };
             } else if (category) {
                 result[category.name].value += Number(price);
             } else if (!result['Other']) {

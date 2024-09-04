@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { useUiContext } from '../../../../../UIProvider';
 import { getStyles } from './styles';
 import { observer } from 'mobx-react';
+import { Chevron } from '../../../../../assets/icons/ChevronIcon';
 
 interface IProps {
     icon?: React.ReactNode;
@@ -22,6 +23,7 @@ export const ProfileItem: FC<IProps> = observer(({ text, icon, onPress }) => {
             <View style={styles.textContainer} >
                 <Text style={styles.title} numberOfLines={2} >{text}</Text>
             </View>
+            <Chevron position='RIGHT' color={colors.icon_strong} />
         </TouchableOpacity>
     );
 });

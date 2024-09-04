@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { IColors } from '../../UIProvider/theme/IColors';
-import { scaleFontSize } from '../../utils';
+import { scaleFontSize, scaleLineHeight } from '../../utils';
 
 export const getStyle = (colors: IColors) => {
     return StyleSheet.create({
@@ -10,6 +10,12 @@ export const getStyle = (colors: IColors) => {
             lineHeight: scaleFontSize(20),
             fontFamily: 'Roboto-Regular',
             fontWeight: '500',
+        },
+        body1: {
+            fontSize: scaleFontSize(14),
+            lineHeight: scaleLineHeight(20),
+            fontFamily: 'Roboto-Regular',
+            color: colors.text_middle,
         },
         caption: {
             fontSize: 12,
@@ -68,12 +74,7 @@ export const getStyle = (colors: IColors) => {
             fontFamily: 'Roboto-Regular',
             color: colors.text_light,
         },
-        body1: {
-            fontSize: 16,
-            lineHeight: 24,
-            fontFamily: 'Roboto-Medium',
-            color: colors.text,
-        },
+
         body2: {
             fontSize: 14,
             lineHeight: 20,
@@ -85,12 +86,6 @@ export const getStyle = (colors: IColors) => {
             lineHeight: 20,
             fontFamily: 'Roboto-Medium',
             color: colors.text,
-        },
-        overline: {
-            fontSize: 10,
-            lineHeight: 14,
-            fontFamily: 'Roboto-Regular',
-            color: colors.text,
-        },
+        }, 
     });
 };

@@ -10,7 +10,7 @@ import { useMmPieChart } from '../../../presenters/useMmPieChart';
 export const MmPieChart: FC = observer(() => {
     const { colors, t } = useUiContext();
     const styles = useMemo(() => getStyle(colors), [colors]);
-    const { chartData } = useMmPieChart();;
+    const { chartData } = useMmPieChart();
 
     return (
         <View style={styles.container}>
@@ -20,7 +20,7 @@ export const MmPieChart: FC = observer(() => {
                     <View key={index} style={styles.legendItem}>
                         <View style={[styles.legendColor, { backgroundColor: item.color }]} />
                         <View style={styles.legendTextContainer}>
-                            <Typography variant='body2' text={`${t(item.legend.toLowerCase())} - ${Math.round(item.value)} UAH (${item.percentage}%)`} />
+                            <Typography variant='caption' text={`${t(item.legend.toLowerCase())} - ${Math.round(item.value)} UAH (${item.percentage}%)`} />
                         </View>
                     </View>
                 ))}

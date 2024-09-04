@@ -1,74 +1,83 @@
 import React, { FC, useMemo, memo, useState } from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, Text } from 'react-native';
 import { getStyle } from './styles';
 import Modal from 'react-native-modal';
-import { Calendar, DateData } from 'react-native-calendars';
+import { Calendar, CalendarUtils, DateData } from 'react-native-calendars';
 import { useUiContext } from '../../../../../UIProvider';
 import { CalendarIcon } from '../../../../../assets/icons/CalendarIcon';
-import { MarkedDates } from 'react-native-calendars/src/types';
-import { Button } from '../../../../../UIKit/Button';
+import { format, startOfDay } from 'date-fns';
 
 interface IProps {
-    onSubmit: (periodStart: string, periodEnd: string) => void;
+    range: { startDate: string, endDate: string };
+    setRange: (range: { startDate: string, endDate: string }) => void;
 }
 
-export const MmTransactionCalendarPeriod: FC<IProps> = memo(({ onSubmit }) => {
+export const MmTransactionCalendarPeriod: FC<IProps> = memo(({ range, setRange }) => {
     const { colors, t } = useUiContext();
     const styles = useMemo(() => getStyle(colors), [colors]);
     const [visible, setVisible] = useState(false);
-    const [period, setPeriod] = useState<MarkedDates>({});
+    const [pickerRange, setPickerRange] = useState<{ startDate: string, endDate: string }>(range);
 
-    const disabled = Object.keys(period).length < 2;
-
-    const onHandleSubmit = () => {
-        const periodStart: any = Object.keys(period)[0];
-        const periodEnd: any = Object.keys(period)[Object.keys(period).length - 1];
-        console.log(periodStart, periodEnd);
-        console.log(period);
-        onSubmit(periodStart, periodEnd);
-        setPeriod({});
+    const onApply = () => {
+        setRange(pickerRange);
         setVisible(false);
-    }
+    };
 
-    const onBackdropPress = () => {
-        setPeriod({});
+    const onCloseCalendar = () => {
         setVisible(false);
+        setPickerRange(range);
     }
 
     const onOpenCalendar = () => {
         setVisible(true);
     }
 
-    const onHandleDayPress = (day: DateData) => {
-        if (Object.keys(period).length === 2) {
-            setPeriod({ [day.dateString]: { color: 'green' } });
-        } else if (Object.keys(period).length === 1) {
-            // @ts-ignore
-            const periodStart: any = day.dateString < Object.keys(period)[0] ? day.dateString : Object.keys(period)[0];
-            // @ts-ignore
-            const periodEnd: any = day.dateString > Object.keys(period)[0] ? day.dateString : Object.keys(period)[0];
-            const periods: any = {
-                [periodStart]: { color: 'green' },
-                [periodEnd]: { color: 'green' }
-            };
-            // let currentDate = periodStart;
-            // while (new Date(currentDate).getTime() <= new Date(periodEnd).getTime()) {
-            //     periods[currentDate] = { color: 'green' };
-            //     currentDate = new Date(currentDate);
-            //     currentDate.setDate(currentDate.getDate() + 1);
-            //     currentDate = currentDate.toISOString().split('T')[0];
-            //     console.log(currentDate);
-            // }
-            setPeriod(periods);
+    const { markedDates } = useMemo(() => {
+        const markedDates: any = {};
+        const getDay = (day: number | string) => CalendarUtils.getCalendarDateString(new Date(day));
+        if (pickerRange.startDate === pickerRange.endDate) {
+            markedDates[getDay(pickerRange.startDate)] = { startingDay: true, endingDay: true, color: colors.primary, textColor: colors.text_inverted };
         } else {
-            setPeriod({ [day.dateString]: { color: 'green' } });
+            const endDate = new Date(pickerRange.endDate);
+            let currentDate = new Date(pickerRange.startDate);
+            while (currentDate <= endDate) {
+                const formattedDate = CalendarUtils.getCalendarDateString(new Date(currentDate));
+                if (formattedDate === getDay(pickerRange.startDate)) {
+                    markedDates[getDay(pickerRange.startDate)] = { startingDay: true, color: colors.primary, textColor: colors.text_inverted };
+                } else if (formattedDate === getDay(pickerRange.endDate)) {
+                    markedDates[formattedDate] = { endingDay: true, color: colors.primary, textColor: colors.text_inverted };
+                } else {
+                    markedDates[formattedDate] = { color: colors.primary, textColor: colors.text_inverted };
+                }
+                currentDate.setDate(currentDate.getDate() + 1);
+            }
+            markedDates[getDay(pickerRange.startDate)] = { startingDay: true, color: colors.primary, textColor: colors.text_inverted };
+            markedDates[getDay(pickerRange.endDate)] = { endingDay: true, color: colors.primary, textColor: colors.text_inverted };
+        }
+        return { markedDates };
+    }, [pickerRange]);
+
+    const onDayPress = (day: DateData) => {
+        if (pickerRange.startDate === pickerRange.endDate) {
+            const startDate = new Date(pickerRange.startDate) < new Date(day.dateString) ? pickerRange.startDate : day.dateString;
+            const endDate = new Date(pickerRange.startDate) < new Date(day.dateString) ? day.dateString : pickerRange.startDate;
+            setPickerRange({ startDate, endDate });
+        } else {
+            setPickerRange({ startDate: day.dateString, endDate: day.dateString });
         }
     }
 
+    const stringDay = useMemo(() => {
+        if (pickerRange.startDate === pickerRange.endDate) {
+            return format(startOfDay(new Date(pickerRange.startDate)), 'LLL dd, y');
+        }
+        return `${format(pickerRange.startDate, 'LLL dd, y')} -  ${format(pickerRange.endDate, 'LLL dd, y')}`;
+    }, [pickerRange])
     return (
         <>
-            <TouchableOpacity style={styles.button} onPress={onOpenCalendar}>
-                <CalendarIcon />
+            <TouchableOpacity onPress={onOpenCalendar} style={styles.periodButton} >
+                <Text style={styles.periodText}>{stringDay}</Text>
+                <CalendarIcon color={colors.icon_middle} />
             </TouchableOpacity>
             <Modal
                 isVisible={visible}
@@ -76,17 +85,19 @@ export const MmTransactionCalendarPeriod: FC<IProps> = memo(({ onSubmit }) => {
                 backdropOpacity={0.4}
                 animationIn='fadeIn'
                 animationOut={'fadeOut'}
-                onBackdropPress={onBackdropPress}
+                onBackdropPress={onCloseCalendar}
                 style={styles.modal}
             >
                 <View style={styles.container}>
                     <Calendar
-                        markedDates={period}
-                        markingType={'period'}
-                        onDayPress={onHandleDayPress}
+                        markingType='period'
+                        onDayPress={onDayPress}
+                        markedDates={markedDates}
                         style={styles.calendar}
                     />
-                    <Button text={t('submit')} onPress={onHandleSubmit} disabled={disabled} />
+                    <TouchableOpacity style={styles.button} onPress={onApply}>
+                        <Text style={styles.buttonText}>{t('apply')}</Text>
+                    </TouchableOpacity>
                 </View>
             </Modal>
         </>

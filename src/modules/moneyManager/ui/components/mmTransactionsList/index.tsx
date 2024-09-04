@@ -30,7 +30,7 @@ export const MmTransactionsList: FC = observer(() => {
         <BottomSheet
             backgroundStyle={styles.bottomSheet}
             index={0}
-            snapPoints={[scaleVertical(400), scaleVertical(780)]}
+            snapPoints={[scaleVertical(370), scaleVertical(780)]}
         >
             <BottomSheetSectionList
                 showsVerticalScrollIndicator={false}

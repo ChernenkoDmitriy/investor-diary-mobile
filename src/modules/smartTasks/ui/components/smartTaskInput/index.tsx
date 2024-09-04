@@ -32,14 +32,13 @@ export const SmartTaskInput: FC<IProps> = observer(({ label, option, value, onCh
                     <InfoIcon color={colors.icon_strong} />
                 </TouchableOpacity>
             </View>
-            <View>
-                <TextInput
-                    placeholder={t(`placeholder_${option}`)}
-                    style={styles.input}
-                    value={value}
-                    onChangeText={onHandleChangeText}
-                />
-            </View>
+            <TextInput
+                multiline
+                placeholder={t(`placeholder_${option}`)}
+                style={styles.input}
+                value={value}
+                onChangeText={onHandleChangeText}
+            />
         </View>
     );
 })

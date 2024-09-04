@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
 import { IColors } from '../../../../../UIProvider/theme/IColors';
-import { scaleFontSize, scaleVertical } from '../../../../../utils';
+import { scaleFontSize, scaleHorizontal, scaleVertical } from '../../../../../utils';
 
 export const getStyle = (colors: IColors) => {
     const styles = StyleSheet.create({
         container: {
             marginBottom: scaleVertical(16),
+            zIndex: 20,
         },
         header: {
             flexDirection: 'row',
@@ -18,9 +19,19 @@ export const getStyle = (colors: IColors) => {
             alignItems: 'center',
             justifyContent: 'center',
         },
+        inputsRow: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+        },
+        currencyDropdown: {
+            width: scaleHorizontal(130),
+        },
         input: {
+            flex: 1,
             paddingTop: scaleVertical(8),
             paddingBottom: scaleVertical(8),
+            marginRight: scaleHorizontal(8),
             minHeight: scaleVertical(36),
             backgroundColor: colors.card,
             borderRadius: 8,

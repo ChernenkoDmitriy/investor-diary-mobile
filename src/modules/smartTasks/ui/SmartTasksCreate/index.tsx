@@ -9,6 +9,7 @@ import { useSmartTasksCreate } from '../../presenters/useSmartTasksCreate';
 import { SmartTaskInput } from '../components/smartTaskInput';
 import { TimeBoundCalendar } from '../components/timeBoundCalendar';
 import { HeaderButtons } from '../../../../UIKit/HeaderButtons';
+import { SmartTaskMeasurable } from '../components/smartTaskMesurable';
 
 export const SmartTasksCreateView: FC = observer(() => {
     const { t, colors } = useUiContext();
@@ -29,11 +30,12 @@ export const SmartTasksCreateView: FC = observer(() => {
                 onChangeText={onChangeValue}
             />
             <SpecificDropdown onChange={onChangeValue} value={smartTask?.specific} />
-            <SmartTaskInput
+            <SmartTaskMeasurable
                 label={t('measurable')}
                 option={'measurable'}
                 value={smartTask?.measurable}
                 onChangeText={onChangeValue}
+                currency={smartTask?.currency}
             />
             <SmartTaskInput
                 label={t('achievable')}

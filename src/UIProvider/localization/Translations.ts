@@ -47,7 +47,7 @@ export const translations = {
         description_time_bound: 'The goal must have a clear deadline. This will help you focus your efforts on achieving the goal.',
 
         placeholder_name: 'Enter name',
-        placeholder_measurable: 'Enter measurable, for example: 10000',
+        placeholder_measurable: 'Enter measurable',
         placeholder_achievable: 'Enter achievable',
         placeholder_relevant: 'Enter relevant',
         placeholder_time_bound: 'Enter time bound',
@@ -55,7 +55,7 @@ export const translations = {
         // Smart tasks end
 
 
-
+        noTransactionsYet: 'No transactions for this period',
         transport: 'Transport',
         createTransaction: 'Create transaction',
         category: 'Category',
@@ -81,6 +81,7 @@ export const translations = {
         no: 'No',
         error: 'Error',
         warning: 'Warning',
+        apply: 'Apply',
         success: 'Success',
         info: 'Info',
         close: 'Close',
@@ -128,6 +129,7 @@ export const translations = {
         commodity: 'Commodity',
         obligation: 'Obligation',
         deposit: 'Deposit',
+        exitProfile: 'Are you sure you want to exit your profile?',
         cash: 'Cash',
         undefined: 'Undefined',
         uah: 'UAH',
@@ -144,6 +146,7 @@ export const translations = {
         food: 'Food',
         family: 'Family',
         entertainment: 'Entertainment',
+        "regular-bills": 'Regular bills',
         kids: 'Kids',
         clothes: 'Clothes',
         smartTasks: 'Smart tasks',

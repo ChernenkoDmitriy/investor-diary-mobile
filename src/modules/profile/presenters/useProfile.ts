@@ -16,7 +16,7 @@ export const useProfile = () => {
     const onExit = () => {
         Alert.alert(
             t('exit'),
-            t('profile.exitProfile'),
+            t('exitProfile'),
             [
                 { text: t('cancel'), style: 'cancel', },
                 { text: t('exit'), style: 'destructive', onPress: exit, },

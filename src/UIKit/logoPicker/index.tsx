@@ -5,8 +5,8 @@ import { ICropedImage } from '../../libs/imagePicker/IImagePicker/ICropedImage';
 import { imagePicker } from '../../libs/imagePicker/RNImageCropPicker';
 import { useUiContext } from '../../UIProvider';
 import { getStyle } from './styles';
-import { CameraIcon } from '../../assets/icons/CameraIcon';
-
+import { EditIcon } from '../../assets/icons/EditIcon';
+ 
 interface IProps {
     size?: number;
     name?: string;
@@ -37,7 +37,7 @@ export const LogoPicker: FC<IProps> = memo(({ name, logo, cropping, onSaveLogo, 
                 :
                 name
                     ? <Text style={[styles.logoText, { fontSize: size / 2 }]}>{name?.[0]}{name?.[1]}</Text>
-                    : <CameraIcon width={size} height={size} color={colors.card} />}
+                    : <EditIcon width={size} height={size} color={colors.card} />}
         </TouchableOpacity>
     )
 
